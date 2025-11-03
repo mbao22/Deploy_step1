@@ -1,0 +1,9 @@
+services:
+  flask-app:
+    build: .
+    ports:
+      - "8080:5000"
+    volumes:
+      - ./data.db:/app/data.db
+    environment:
+      - FLASK_ENV=development

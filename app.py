@@ -102,12 +102,19 @@ def about():
     return "About page — created in feature branch."
 
 if __name__ == '__main__':
+    import argparse
+    
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='Flask Review App')
+    parser.add_argument('--port', type=int, default=5001, help='Port to run the application on')
+    args = parser.parse_args()
+    
     # Initialize database on startup
     init_db()
     
     # Start Flask development server
     print("Starting Flask application...")
     print("Database initialized with sample data")
-    print("Access the application at: http://localhost:5000")
+    print(f"Access the application at: http://localhost:{args.port}")
     
-    app.run(debug=True, host='0.0.0.0', port=5001)
+    app.run(debug=True, host='0.0.0.0', port=args.port)
