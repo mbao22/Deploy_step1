@@ -94,6 +94,13 @@ def index():
     # Render template with reviews data
     return render_template('index.html', reviews=reviews)
 
+@app.route('/about')
+def about():
+    """
+    About page route - created in feature branch
+    """
+    return "About page — created in feature branch."
+
 if __name__ == '__main__':
     # Initialize database on startup
     init_db()
